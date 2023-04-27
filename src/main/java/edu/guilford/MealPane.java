@@ -27,6 +27,7 @@ public class MealPane extends GridPane {
     private Button enterButton;
 
     private Label ratingLabel;
+    // Step 1: Instantiate the slider
     private Slider ratingSlider;
 
     private ImageView imageView;
@@ -57,6 +58,7 @@ public class MealPane extends GridPane {
 
         // instantiate the rating label and slider
         ratingLabel = new Label("What would you rate your meal?");
+        // Step 2: Instantiate the slider
         ratingSlider = new Slider(0, 10, 5);
         // create a File object for the image
         File rateFace = new File(this.getClass().getResource("Shadie_Yummy_Bitmoji.png").getPath());
@@ -104,6 +106,7 @@ public class MealPane extends GridPane {
 
         // add the rating label and slider
         add(ratingLabel, 0, 8);
+        // Step 3: Add the slider to the pane
         add(ratingSlider, 1, 8);
 
         // add the image view underneath the rating label and slider
@@ -115,8 +118,7 @@ public class MealPane extends GridPane {
 
         // add the combo box
         add(viewComboBox, 0, 12, 2, 1);
-
-        // add a listener for the buttons that updates the labels
+         
         enterButton.setOnAction(e -> {
             appetizerLabel.setText("Appetizer: " + appetizerField.getText());
             entreeLabel.setText("Entree: " + entreeField.getText());
@@ -124,8 +126,9 @@ public class MealPane extends GridPane {
             drinkLabel.setText("Drink: " + drinkField.getText());
         });
 
-        // add an event handler for the slider that changes the size of the image 
-        // based on the value of the slider
+        // step 4 and 5: Write an event listener and connect it to the component that triggers the event
+        // (add an event handler for the slider that changes the size of the image 
+        // based on the value of the slider)
         ratingSlider.setOnMouseReleased(e -> {
             imageView.setFitHeight(ratingSlider.getValue() * 40);
         });
@@ -149,9 +152,9 @@ public class MealPane extends GridPane {
         // add a listener for the combo box that changes the background color of the pane
         viewComboBox.setOnAction(e -> {
             if (viewComboBox.getValue().equals("Light Mode")) {
-                setStyle("-fx-background-color: lightpink;");
+                setStyle("-fx-background-color: white;");
             } else {
-                setStyle("-fx-background-color: hotpink;");
+                setStyle("-fx-background-color: black;");
             }
         });
     }
