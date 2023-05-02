@@ -12,7 +12,7 @@ import java.io.IOException;
 /**
  * JavaFX App
  */
-public class App extends Application {
+public class MealProject extends Application {
 
     private static Scene scene;
 
